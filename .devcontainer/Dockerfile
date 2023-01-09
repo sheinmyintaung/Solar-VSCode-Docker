@@ -11,9 +11,7 @@ FROM ubuntu:${image_tag}
 #
 RUN apt update && \
     apt install -y \
-        vim git \
-        GLFW OpenGL\
-        Assimp\
+        vim git\
         build-essential cmake gdb clang-format \
         ruby \
         && \
