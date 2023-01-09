@@ -38,3 +38,10 @@ RUN cd /usr/local/src && \
     make install
 
 USER cppuser
+
+#install GLFW 
+RUN apt update && \
+    apt install -y\
+    GLFW OpenGL\
+    Assimp
+
