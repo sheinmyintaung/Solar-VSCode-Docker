@@ -1,8 +1,11 @@
-ARG image_tag=latest
+#ARG user=appuser
+#ARG group=appgroup
+ARG image_version="latest"
 ARG uid=1000
 ARG gid=1000
 
-FROM ubuntu:latest
+
+FROM ubuntu:${image_version}
 
 #
 # * vim git : Utilities.
