@@ -1,8 +1,8 @@
-ARG image_tag=bullseye
+ARG image_tag=latest
 ARG uid=1000
 ARG gid=1000
 
-FROM debian:${image_tag}
+FROM ubuntu:${image_tag}
 
 #
 # * vim git : Utilities.
@@ -12,6 +12,8 @@ FROM debian:${image_tag}
 RUN apt update && \
     apt install -y \
         vim git \
+        GLFW OpenGL\
+        Assimp\
         build-essential cmake gdb clang-format \
         ruby \
         && \
@@ -20,8 +22,8 @@ RUN apt update && \
 ARG gid
 ARG uid
 
-RUN groupadd -g ${gid} cppuser && \
-    useradd -u ${uid} -g ${gid} -s /bin/bash -m cppuser
+RUN groupadd -g ${gid} solardev && \
+    useradd -u ${uid} -g ${gid} -s /bin/bash -m solardev
 
 #
 # GoogleTest (C++ testing library).
@@ -37,11 +39,4 @@ RUN cd /usr/local/src && \
     make && \
     make install
 
-USER cppuser
-
-#install GLFW 
-RUN apt update && \
-    apt install -y\
-    GLFW OpenGL\
-    Assimp
-
+USER solardev
