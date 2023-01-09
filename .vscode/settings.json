@@ -82,5 +82,6 @@
     "thread": "cpp",
     "typeinfo": "cpp",
     "variant": "cpp"
-  }
+  },
+  "compile-hero.disable-compile-files-on-did-save-code": false
 }
