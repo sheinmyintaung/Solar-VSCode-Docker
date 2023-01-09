@@ -2,21 +2,19 @@ ARG image_tag=latest
 ARG uid=1000
 ARG gid=1000
 
-FROM ubuntu:${image_tag}
+FROM ubuntu:latest
 
 #
 # * vim git : Utilities.
 # * build-essential cmake gdb clang-format: C/C++ test, debugger and formatter.
 # * ruby : Generate Makefile.
 #
-RUN apt update && \
-    apt install -y \
+RUN apt-get update && \
+    apt-get install -y \
         vim git\
         build-essential cmake gdb clang-format \
-        ruby \
-        && \
-    apt clean && rm -rf /var/lib/apt/lists/*
-
+        ruby 
+        
 ARG gid
 ARG uid
 
